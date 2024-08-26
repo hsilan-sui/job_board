@@ -1,0 +1,43 @@
+{% extends 'job_board/_base.html' %} {% block content %}
+<html>
+  <div class="card border-success mb-3 mt-4" style="max-width: 18rem">
+    <div class="card-header bg-transparent border-success">
+      {{ posting.title }}
+    </div>
+    <div class="card-body text-success">
+      <h5 class="card-title">{{ posting.title }}</h5>
+      <p class="card-text">{{ posting.description }}</p>
+      <p class="card-text">{{ posting.company }}</p>
+      <p class="card-text">{{ posting.salary }}</p>
+    </div>
+    <div class="card-footer bg-transparent border-success">
+      <fieldset>
+        <legend>徵人：</legend>
+        {% if posting.is_active %}
+        <div>
+          <input
+            type="radio"
+            id="active"
+            name="active"
+            value="active"
+            checked
+          />
+          <label for="active">徵人中</label>
+        </div>
+        {% else %}
+        <div>
+          <input
+            type="radio"
+            id="no_active"
+            name="no_active"
+            value="no_active"
+            checked
+          />
+          <label for="no_active">無職缺</label>
+        </div>
+        {% endif %}
+      </fieldset>
+    </div>
+  </div>
+</html>
+{% endblock %}
